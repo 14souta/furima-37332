@@ -1,28 +1,24 @@
-## users テーブル
+# README
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| nickname           | string | null: false |
-| email              | string | null: false |
-| encrypted_password | string | null: false |
-| family_name        | string | null: false |
-| first_name         | string | null: false |
-| family_name_kana   | string | null: false |
-| first_nae_kana     | string | null: false |
-| birth_day          | string | null: false |
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-##　アソシエーション
-has_many items
+Things you may want to cover:
 
-## items テーブル
+* Ruby version
 
-| Column       | Type   | Options     |
-| ------------ | ------ | ----------- |
-| name         | string | null: false |
-| price        | string | null: false |
-| status       | string | null: false |
-| description  | string | null: false |
-| image        | string | null: false |
+* System dependencies
 
-## アソシエーション
+* Configuration
 
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
