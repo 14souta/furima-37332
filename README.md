@@ -1,24 +1,69 @@
-# README
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| nickname           | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+| family_name        | string | null: false |
+| first_name         | string | null: false |
+| family_name_kana   | string | null: false |
+| first_nae_kana     | string | null: false |
+| birth_day          | string | null: false |
 
-Things you may want to cover:
+##　アソシエーション
+has_many items
+belongs_to :card
+belongs_to :destination
 
-* Ruby version
+## items テーブル
 
-* System dependencies
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| name         | string     | null: false                    |
+| price        | string     | null: false                    |
+| status       | string     | null: false                    |
+| description  | string     | null: false                    |
+| image        | string     | null: false                    |
+| user_id      | integer    | null: false, foreign_key: true |
 
-* Configuration
+## アソシエーション
+belongs_to :user
+has_many :items
 
-* Database creation
+## card テーブル
 
-* Database initialization
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| user_id      | integer    | null: false, foreign_key: true |
+| card_id      | string     | null: false                    |
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## アソシエーション
+belongs_to :user
 
-* Deployment instructions
+## destination テーブル
 
-* ...
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| user_id           | integer    | null: false, foreign_key: true |
+| password          | string     | null: false                    |
+| address           | string     | null: false                    |
+| family_name       | string     | null: false                    |
+| first_name        | string     | null: false                    |
+| family_name_kana  | string     | null: false                    |
+| first_name_kana   | string     | null: false                    |
+
+## アソシエーション
+belongs_to :user
+
+
+## image テーブル
+
+| Column   | Type    | Options     |
+| -------- | ------- | ----------- |
+| image_id | integer | null: false |
+
+## アソシエーション
+
+belongs_to :items
