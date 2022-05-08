@@ -49,7 +49,7 @@ belongs_to_active_hash :shipment
 ## アソシエーション
 belongs_to :user
 has_one :address
-has_many :items
+belongs_to :item
 
 ## addresses テーブル
 
