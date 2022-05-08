@@ -13,7 +13,7 @@
 
 ##　アソシエーション
 has_many :items
-belongs_to :order
+has_many :orders
 
 ## items テーブル
 
@@ -30,24 +30,26 @@ belongs_to :order
 | user         | references  | null: false, foreign_key: true |
 
 ## アソシエーション
-belongs_to :user
-belongs_to :order
-has_many :items
+has_one :user
+has_one :order
 belongs_to_active_hash :status
 belongs_to_active_hash :area
-
+belongs_to_active_hash :category
+belongs_to_active_hash :payment
+belongs_to_active_hash :shipment
 
 ## orders テーブル
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| user      | references | null: false, foreign_key: true |
-| item      | references | null: false, foreign_key: true |
+| user         | references | null: false, foreign_key: true |
+| item         | references | null: false, foreign_key: true |
 
 
 ## アソシエーション
 belongs_to :user
-belongs_to :address
+has_one :address
+has_many :items
 
 ## addresses テーブル
 
