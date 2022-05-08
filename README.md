@@ -12,7 +12,8 @@
 | birth_day          | date   | null: false               |
 
 ##　アソシエーション
-has_many items
+has_many :items
+belongs_to :order
 
 ## items テーブル
 
@@ -30,6 +31,8 @@ has_many items
 
 ## アソシエーション
 belongs_to :user
+belongs_to :order
+has_many :items
 belongs_to_active_hash :status
 belongs_to_active_hash :area
 
@@ -38,21 +41,22 @@ belongs_to_active_hash :area
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| user         | references | null: false, foreign_key: true |
-| item_id      | integer    | null: false                    |
+| user      | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
 
 
 ## アソシエーション
 belongs_to :user
+belongs_to :address
 
 ## addresses テーブル
 
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
-| order_id          | integer    | null: false                    |
+| order             | references | null: false, foreign_key: true |
 | address           | string     | null: false                    |
 | post_code         | string     | null: false                    |
-| area              | string     | null: false                    |
+| area_id           | integer    | null: false                    |
 | city              | string     | null: false                    |
 | building_name     | string     | 
 | phone_number      | string     | null: false                    |
@@ -62,12 +66,4 @@ belongs_to :order
 belongs_to_active_hash :area
 
 
-## image テーブル
 
-| Column   | Type    | Options     |
-| -------- | ------- | ----------- |
-| image_id | integer | null: false |
-
-## アソシエーション
-
-belongs_to :items
