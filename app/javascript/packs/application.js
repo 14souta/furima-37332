@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-
+require("../task");
 require("@rails/activestorage").start()
 require("channels")
 
