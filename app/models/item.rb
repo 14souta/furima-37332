@@ -1,7 +1,6 @@
 class Item < ApplicationRecord
 
   validates :name, presence: true
-  validates :price, presence: true
   validates :status_id, presence: true
   validates :description, presence: true
   validates :category_id, presence: true
@@ -10,7 +9,7 @@ class Item < ApplicationRecord
   validates :shipment_id, presence: true
   validates :image, presence: true
 
-  has_one :user
+  belongs_to :user
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -22,9 +21,10 @@ class Item < ApplicationRecord
 
 
 
-  validates :price, numericality: { with: /\A[0-9]+\z/, message: 'Half-width number' }
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
-
+with_options  presence: true, format: { with: /\A[0-9]+\z/ } do
+  validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
+  presence: { messages: "Can't be blank" }
+end
 
 
   validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
@@ -32,6 +32,7 @@ class Item < ApplicationRecord
   validates :area_id,     numericality: { other_than: 1 , message: "can't be blank"}
   validates :payment_id,  numericality: { other_than: 1 , message: "can't be blank"}
   validates :shipment_id, numericality: { other_than: 1 , message: "can't be blank"}
+
 
 
 
