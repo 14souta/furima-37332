@@ -28,11 +28,11 @@ with_options  presence: true, format: { with: /\A[0-9]+\z/ } do
 end
 
 
-  validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :status_id,   numericality: { other_than: 1 , message: "can't be blank"}
-  validates :area_id,     numericality: { other_than: 1 , message: "can't be blank"}
-  validates :payment_id,  numericality: { other_than: 1 , message: "can't be blank"}
-  validates :shipment_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :category_id, numericality: { other_than: 1 , message: "を選択してください。"}
+  validates :status_id,   numericality: { other_than: 1 , message: "を選択してください。"}
+  validates :area_id,     numericality: { other_than: 1 , message: "を選択してください。"}
+  validates :payment_id,  numericality: { other_than: 1 , message: "を選択してください。"}
+  validates :shipment_id, numericality: { other_than: 1 , message: "を選択してください。"}
 
 
 
